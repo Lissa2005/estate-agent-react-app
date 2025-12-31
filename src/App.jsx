@@ -3,14 +3,11 @@ import PropertyCard from "./components/PropertyCard";
 
 function App(){
   return(
-    <div style={{
-      maxWidth: "800px",
-      margin: "0 auto"
-    }}>
+    <div style={{maxWidth: "800px", margin: "0 auto"}}>
       <h1>Property Listings</h1>
 
-      {data.properties.map(properties => (
-        <PropertyCard key={PropertyCard.id} property={property}/>
+      {data.properties.map(property => (
+        <PropertyCard key={property.id} property={property}/>
       ))}
     </div>
   );
