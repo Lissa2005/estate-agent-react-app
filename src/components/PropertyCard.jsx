@@ -1,14 +1,21 @@
 function PropertyCard({ property }){
     return(
-        <div style = {{
-            border: "px soild #cc",
-            padding: "10px",
-            marginBottom: "10px"
-        }}>
-            <h3>{property.type}</h3>
-            <p>£{property.price}</p>
-            <p>{property.bedrooms}</p>
-            <p>{property.location}</p>
+        <div className="card">
+
+            <div className="image">
+                <img
+                    src={property.images?.[0]}
+                    alt={property.type}
+                />
+            </div>
+            
+            <div className="description">
+                <h3>{property.type}</h3>
+                <p>£{property.price}</p>
+                <p>{property.bedrooms}</p>
+                <p>{property.location}</p>
+            </div>
+            
         </div>
     );
 }
