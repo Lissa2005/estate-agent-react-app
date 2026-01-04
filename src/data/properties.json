@@ -31,5 +31,117 @@
                 "day":14,
                 "year":2022
             }
-        }
-]}
+        },
+        {
+            "id": "prop3",
+            "type": "House",
+            "bedrooms": 4,
+            "price": 925000,
+            "tenure": "Freehold",
+            "description": "A spacious four bedroom detached house with a large garden, garage and modern kitchen located in a quiet residential area close to schools and transport links.",
+            "location": "Chislehurst Road, Kent BR7",
+            "picture": "images/prop3.jpg",
+            "url": "properties/prop3.html",
+            "added": {
+                "month": "August",
+                "day": 5,
+                "year": 2022
+            }
+        },
+        {
+            "id": "prop4",
+            "type": "Flat",
+            "bedrooms": 1,
+            "price": 275000,
+            "tenure": "Leasehold",
+            "description": "A modern one bedroom flat ideal for first-time buyers, featuring an open plan living area, balcony and excellent transport connections.",
+            "location": "Lewisham High Street, London SE13",
+            "picture": "images/prop4.jpg",
+            "url": "properties/prop4.html",
+            "added": {
+                "month": "November",
+                "day": 22,
+                "year": 2022
+            }
+        },
+        {
+            "id": "prop5",
+            "type": "Bungalow",
+            "bedrooms": 3,
+            "price": 650000,
+            "tenure": "Freehold",
+            "description": "Well-presented three bedroom bungalow offering single-floor living, private driveway, and a landscaped rear garden.",
+            "location": "Sevenoaks Road, Kent TN13",
+            "picture": "images/prop5.jpg",
+            "url": "properties/prop5.html",
+            "added": {
+                "month": "July",
+                "day": 18,
+                "year": 2022
+            }
+        },
+        {
+            "id": "prop6",
+            "type": "Flat",
+            "bedrooms": 2,
+            "price": 420000,
+            "tenure": "Leasehold",
+            "description": "Two bedroom purpose-built flat with allocated parking, lift access, and a spacious living room close to local amenities.",
+            "location": "Orpington High Street, BR6",
+            "picture": "images/prop6.jpg",
+            "url": "properties/prop6.html",
+            "added": {
+                "month": "January",
+                "day": 10,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop7",
+            "type": "House",
+            "bedrooms": 5,"price": 1250000,
+            "tenure": "Freehold",
+            "description": "An impressive five bedroom executive home featuring a double garage, ensuite bedrooms, and open-plan family living spaces.",
+            "location": "Farnborough Park, Kent BR6",
+            "picture": "images/prop7.jpg",
+            "url": "properties/prop7.html",
+            "added": {
+                "month": "March",
+                "day": 3,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop8",
+            "type": "Maisonette",
+            "bedrooms": 2,
+            "price": 365000,
+            "tenure": "Leasehold",
+            "description": "A bright and spacious two bedroom maisonette with private entrance, rear garden and modern bathroom.",
+            "location": "Bromley North Road, BR1",
+            "picture": "images/prop8.jpg",
+            "url": "properties/prop8.html",
+            "added": {
+                "month": "February",
+                "day": 14,
+                "year": 2023
+            }
+        },
+        {
+            "id": "prop9",
+            "type": "House",
+            "bedrooms": 3,
+            "price": 585000,
+            "tenure": "Freehold",
+            "description": "A well-maintained three bedroom terraced house with loft potential, conservatory and off-street parking.",
+            "location": "Sidcup Road, Kent DA14",
+            "picture": "images/prop9.jpg",
+            "url": "properties/prop9.html",
+            "added": {
+                "month": "April",
+                "day": 9,
+                "year": 2023
+            }
+        } 
+    ]
+}
