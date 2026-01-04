@@ -1,8 +1,11 @@
+
+/*=== Global Reset ===*/
 * {
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
+/*=== App Wrapper ===*/
 .app{
 	width:100%;
 	max-width:1200px;
@@ -10,6 +13,7 @@
 	padding:20px;
 }
 
+/*=== Search Section ===*/
 .search-container{
   display: flex;
   text-align: center;
@@ -22,6 +26,7 @@
   color: rgb(0,100,245);
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
+
 label{
   color:black;
 }
@@ -59,7 +64,7 @@ button:hover {
 	display: flex;
 	gap: 30px;
 	width: 100%;
-	align-items:flx-start;
+	align-items:flex-start;
 }
 
 /*===propert Listings===*/
@@ -77,7 +82,7 @@ button:hover {
 
 .all-items .gallery{
 	display: flex;
-	flex-flow: wrap;
+	flex-wrap: wrap;
 	gap: 30px;
 }
 
@@ -98,7 +103,7 @@ button:hover {
   justify-content: space-between;
 }
 
-.all-itemsc .gallery .card:hover{
+.all-items .gallery .card:hover{
 	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
@@ -166,7 +171,7 @@ button:hover {
 
 .favorites .gallery .card img{
 	width: 160px;
-	height: 100%;
+	height: auto;
 	object-fit: cover;
 	border-radius: 15px;
 }
