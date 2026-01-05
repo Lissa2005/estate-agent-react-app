@@ -1,8 +1,26 @@
+import {useState} from "react";
 import "./App.css";
 import data from"./data/properties.json";
 import PropertyCard from "./components/PropertyCard";
 
 function App(){
+
+  //search filter state
+  const [filters, setFilters] = useState({});
+
+  // filtering logic
+  const filteredProperties = data.properties.filter(property => {
+
+    if (filters.type && property.type !== filters.type) return false;
+    if (filters.minPrice && property.price < filters.minPrice) return false;
+    if (filters.maxPrice && property.price > filters.maxPrice) return false;
+    if (filters.minBeds && property.bedrooms < filters.minBeds) return false;
+    if (filters.maxBeds && property.bedrooms > filters.maxBeds) return false;
+
+    return true;
+  });
+
+
   return(
     <div className="app">
       <div className="container">
