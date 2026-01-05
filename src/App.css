@@ -221,6 +221,44 @@ button:hover {
   justify-content: space-around;
 }
 
+/*=== Image Gallery ===*/
+/* ===== Image Gallery ===== */
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+}
+
+.thumbnails img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.thumbnails img:hover,
+.thumbnails img.active {
+  opacity: 1;
+  border-color: rgb(0, 100, 245);
+}
+
+
 /*===== Responsive Design =====*/
 @media (max-width: 1024px) {
   .container {
