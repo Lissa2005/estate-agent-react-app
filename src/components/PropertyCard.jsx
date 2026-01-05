@@ -13,7 +13,7 @@ function PropertyCard({ property, onFavourite, onRemove, isFavourite }){
             <Link to={'/property/${property.id}'}>
             <div className="image">
                 <img 
-                    src={property.picture}
+                    src={property.picture[0]}
                     alt={property.type}
                 />
             </div>

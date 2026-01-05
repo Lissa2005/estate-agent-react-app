@@ -13,11 +13,11 @@ function PropertyDetails(){
     return (
         <div className="property-details">
 
-            <h1>{Property.type}</h1>
+            <h1>{property.type}</h1>
             <p>{property.location}</p>
-            <p>£{property.price.toLocalString()}</p>
+            <p>£{property.price.toLocaleString()}</p>
             
-            <ImageGallery images={property.images || [property.picture]} />
+            <ImageGallery images={property.picture} />
 
             <Tabs property={property} />
 
