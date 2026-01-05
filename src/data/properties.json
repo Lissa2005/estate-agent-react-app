@@ -126,22 +126,6 @@
                 "day": 14,
                 "year": 2023
             }
-        },
-        {
-            "id": "prop9",
-            "type": "House",
-            "bedrooms": 3,
-            "price": 585000,
-            "tenure": "Freehold",
-            "description": "A well-maintained three bedroom terraced house with loft potential, conservatory and off-street parking.",
-            "location": "Sidcup Road, Kent DA14",
-            "picture": "images/prop9.jpg",
-            "url": "properties/prop9.html",
-            "added": {
-                "month": "April",
-                "day": 9,
-                "year": 2023
-            }
-        } 
+        }
     ]
 }
