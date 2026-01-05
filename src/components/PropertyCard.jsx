@@ -1,3 +1,6 @@
+
+import  { link } from "react-router-dom";
+
 function PropertyCard({ property, onFavourite, onRemove, isFavourite }){
     return(
         <div className="card"
@@ -6,12 +9,15 @@ function PropertyCard({ property, onFavourite, onRemove, isFavourite }){
                 e.dataTransfer.setData("propertyId", property.id)
             }
         >
+            
+            <Link to={'/property/${property.id}'}>
             <div className="image">
                 <img 
                     src={property.picture}
                     alt={property.type}
                 />
             </div>
+            </Link>
 
             <div className="description">
                 <h3>{property.type}</h3>
