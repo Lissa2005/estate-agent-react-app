@@ -1,32 +1,25 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import data from "./data/properties.json";
 import PropertyCard from "./components/PropertyCard";
 import SearchBar from "./components/SearchBar";
-import { Routes, route } from "react-router-dom";
-import PropertyPage from "./components/PropertyPage"
+import PropertyPage from "./components/PropertyPage";
 
 function App() {
-
-  // Search filters (object, not array)
   const [filters, setFilters] = useState({});
-
-  // Favourites
   const [favourites, setFavourites] = useState([]);
 
-  // Add to favourites
   const addFavourite = (property) => {
     if (!favourites.find(fav => fav.id === property.id)) {
       setFavourites([...favourites, property]);
     }
   };
 
-  // Remove from favourites
   const removeFromFavourites = (id) => {
     setFavourites(favourites.filter(fav => fav.id !== id));
   };
 
-  // Drag & drop
   const handleDrop = (e) => {
     e.preventDefault();
     const propertyId = e.dataTransfer.getData("propertyId");
@@ -34,7 +27,6 @@ function App() {
     if (property) addFavourite(property);
   };
 
-  // Filtering logic
   const filteredProperties = data.properties.filter(property => {
     if (filters.type && property.type !== filters.type) return false;
     if (filters.minPrice && property.price < filters.minPrice) return false;
@@ -58,62 +50,63 @@ function App() {
   });
 
   return (
-  <div className="app">
+    <div className="app">
+      <Routes>
 
-    <Routes>
-      {/* Search Page */}
-      <Route
-        path="/"
-        element={
-          <>
-            <SearchBar filters={filters} setFilters={setFilters} />
+        {/* HOME / SEARCH PAGE */}
+        <Route
+          path="/"
+          element={
+            <>
+              <SearchBar filters={filters} setFilters={setFilters} />
 
-            <div className="container">
-              <div className="all-items">
-                <h1>Property Listings</h1>
+              <div className="container">
+                <div className="all-items">
+                  <h1>Property Listings</h1>
 
-                <div className="gallery">
-                  {filteredProperties.map(property => (
-                    <PropertyCard
-                      key={property.id}
-                      property={property}
-                      onFavourite={addFavourite}
-                      isFavourite={favourites.some(fav => fav.id === property.id)}
-                    />
-                  ))}
+                  <div className="gallery">
+                    {filteredProperties.map(property => (
+                      <PropertyCard
+                        key={property.id}
+                        property={property}
+                        onFavourite={addFavourite}
+                        isFavourite={favourites.some(
+                          fav => fav.id === property.id
+                        )}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="favorites"
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={handleDrop}
+                >
+                  <h2>Favourites</h2>
+
+                  <div className="gallery">
+                    {favourites.map(property => (
+                      <PropertyCard
+                        key={property.id}
+                        property={property}
+                        onRemove={() => removeFromFavourites(property.id)}
+                        isFavourite
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
+            </>
+          }
+        />
 
-              <div
-                className="favorites"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={handleDrop}
-              >
-                <h2>Favourites</h2>
+        {/* PROPERTY DETAILS PAGE */}
+        <Route path="/property/:id" element={<PropertyPage />} />
 
-                <div className="gallery">
-                  {favourites.map(property => (
-                    <PropertyCard
-                      key={property.id}
-                      property={property}
-                      onRemove={() => removeFromFavourites(property.id)}
-                      isFavourite
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </>
-        }
-      />
-
-      {/* Property Page */}
-      <Route path="/property/:id" element={<PropertyPage />} />
-    </Routes>
-
-  </div>
-);
-
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
