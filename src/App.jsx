@@ -12,17 +12,24 @@ function App(){
   //Favourites state Array
   const[favourites, setFavourites] = useState({});
 
-  //add to favourites (mo duplicates)
+  //add to favourites (no duplicates)
   const addFavourites = (property) => {
     if (!favourites.find(fav => fav.id === property.id)) {
       setFavourites([...favourites, property]);
     }
   };
 
-  //remove from favourites
-  const removeFromFavourites = (id) => {
-    setFavourites(favourites.filter(fav => fav.id !== id));
-  }
+  const handleDrop = (e) => {
+    e.preventDafault();
+
+    const propertyId = e.dataTransfer.getData("propertyId");
+    const property = data.properties.find(p => p.id === propertyId);
+
+    if (property && !favourites.find(f => f.id === property.id)) {
+      setFavourites([...favourites, property]);
+    }
+  };
+
 
   // filtering logic
   const filteredProperties = data.properties.filter(property => {
@@ -39,6 +46,7 @@ function App(){
       const addedDate = new Date(
        '${property.added.month} ${property.added.day}, ${property.added.year}' 
       );
+      if (addedDate < new Date(filters.afterDate)) return false;
     }
 
     return true;  
@@ -67,8 +75,9 @@ function App(){
               ))}
           </div>
         </div>
-        
-        <div className="favorites">
+
+        {/* Favourite Drop Zone */}       
+        <div className="favorites" onDragOver={(e) => e.preventDefault} onDrop={handleDrop}>
           <h2>Favourites</h2>
 
           {favourites.lenght === 0 && <p>No Favourites Yet</p>}
