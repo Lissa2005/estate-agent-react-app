@@ -21,9 +21,9 @@ function SearchBar({ filter,setFilters}) {
             </select>
 
             <label>Min Price</label>
-            <input type="number" name="minPrice" onChange={handlechange}/>
+            <input type="number" name="minPrice" onChange={handleChange}/>
 
-            <lable>Max Price</lable>
+            <label>Max Price</label>
             <input type="number" name="maxPrice" onChange={handleChange}/>
 
             <label>Min Bedrooms</label>
@@ -31,6 +31,12 @@ function SearchBar({ filter,setFilters}) {
 
             <label>Max Bedrooms</label>
             <input type="number" name="maxBeds" onChange={handleChange}/>
+
+            <label>Postcode Area</label>
+            <input type="text" name="posrcode" onChange={handleChange} />
+
+            <label>Added After</label>
+            <input type="date" name="afterDate" onChange={handleChange} />
 
         </section>
 
