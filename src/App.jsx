@@ -3,6 +3,8 @@ import "./App.css";
 import data from "./data/properties.json";
 import PropertyCard from "./components/PropertyCard";
 import SearchBar from "./components/SearchBar";
+import { Routes, route } from "react-router-dom";
+import PropertyPage from "./components/PropertyPage"
 
 function App() {
 
@@ -56,52 +58,62 @@ function App() {
   });
 
   return (
-    <div className="app">
-      <SearchBar filters={filters} setFilters={setFilters} />
+  <div className="app">
 
-      <div className="container">
+    <Routes>
+      {/* Search Page */}
+      <Route
+        path="/"
+        element={
+          <>
+            <SearchBar filters={filters} setFilters={setFilters} />
 
-        {/* Property List */}
-        <div className="all-items">
-          <h1>Property Listings</h1>
+            <div className="container">
+              <div className="all-items">
+                <h1>Property Listings</h1>
 
-          <div className="gallery">
-            {filteredProperties.map(property => (
-              <PropertyCard
-                key={property.id}
-                property={property}
-                onFavourite={addFavourite}
-                isFavourite={favourites.some(fav => fav.id === property.id)}
-              />
-            ))}
-          </div>
-        </div>
+                <div className="gallery">
+                  {filteredProperties.map(property => (
+                    <PropertyCard
+                      key={property.id}
+                      property={property}
+                      onFavourite={addFavourite}
+                      isFavourite={favourites.some(fav => fav.id === property.id)}
+                    />
+                  ))}
+                </div>
+              </div>
 
-        {/* Favourites */}
-        <div
-          className="favorites"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleDrop}
-        >
-          <h2>Favourites</h2>
+              <div
+                className="favorites"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={handleDrop}
+              >
+                <h2>Favourites</h2>
 
-          {favourites.length === 0 && <p>No favourites yet</p>}
+                <div className="gallery">
+                  {favourites.map(property => (
+                    <PropertyCard
+                      key={property.id}
+                      property={property}
+                      onRemove={() => removeFromFavourites(property.id)}
+                      isFavourite
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
+        }
+      />
 
-          <div className="gallery">
-            {favourites.map(property => (
-              <PropertyCard
-                key={property.id}
-                property={property}
-                onRemove={() => removeFromFavourites(property.id)}
-                isFavourite={true}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Property Page */}
+      <Route path="/property/:id" element={<PropertyPage />} />
+    </Routes>
 
-      </div>
-    </div>
-  );
+  </div>
+);
+
 }
 
 export default App;
