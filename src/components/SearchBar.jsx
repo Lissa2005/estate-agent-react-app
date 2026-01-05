@@ -10,7 +10,7 @@ function SearchBar({ filters, setFilters }) {
 
   return (
     <section className="search-container">
-      <h1>Property Search</h1>
+      <h1> ~ Estate Agent ~ </h1>
 
       {/* GRID WRAPPER */}
       <div className="filter">
