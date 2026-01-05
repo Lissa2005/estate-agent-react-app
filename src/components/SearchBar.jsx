@@ -21,8 +21,6 @@ function SearchBar({ filters, setFilters }) {
             <option value="">Any</option>
             <option value="House">House</option>
             <option value="Flat">Flat</option>
-            <option value="Bungalow">Bungalow</option>
-            <option value="Maisonette">Maisonette</option>
           </select>
         </div>
 
