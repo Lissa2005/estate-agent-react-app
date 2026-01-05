@@ -1,4 +1,4 @@
-function PropertyCard({ property }){
+function PropertyCard({ property, onFavourite, onRemove, isFavourites }){
     return(
         <div className="card">
             <div className="image">
@@ -17,6 +17,20 @@ function PropertyCard({ property }){
                 <small>
                     Added: {property.added.day} {property.added.month} {property.added.year}
                 </small>
+
+                <div className="actions">
+                    {!isFavourites && (
+                        <button onClick={() => onFavourite(property)}>
+                        ❤️ Add to Favourites
+                        </button>
+                    )}
+
+                    {isFavourites && (
+                        <button onClick={() => onRemove(property.id)}>
+                            ❌ Remove
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );
