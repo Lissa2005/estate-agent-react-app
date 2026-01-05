@@ -33,9 +33,9 @@
 }
 
 /*=== Filters Grid ===*/
-.filter {
+.filters {
 	display: grid;
-	grid-template-columns: repeat(auto-fit(200px, 1fr));
+	grid-template-columns: repeat(6, 1fr);
 	gap: 16px 20px;
 }
 
