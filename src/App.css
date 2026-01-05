@@ -16,7 +16,6 @@
 /*=== Search Section ===*/
 .search-container{
   display: flex;
-  text-align: column;
   padding: 20px 30px;
   flex-direction: column;
   border: 2px solid #f2f2f2;
@@ -33,10 +32,11 @@
 }
 
 /*=== Filters Grid ===*/
-.filters {
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	gap: 16px 20px;
+.filter {
+  display: grid;
+  grid-template-columns: 160px 160px 160px 160px 1fr 1fr;
+  gap: 16px 20px;
+  align-items: end;
 }
 
 /*=== Label ===*/
