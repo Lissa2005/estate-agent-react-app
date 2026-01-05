@@ -35,7 +35,7 @@
 /*=== Filters Grid ===*/
 .filter {
 	display: grid;
-	grid-template-columns: repoeat(auto-fit(200px, 1fr));
+	grid-template-columns: repeat(auto-fit(200px, 1fr));
 	gap: 16px 20px;
 }
 
