@@ -1,4 +1,3 @@
-
 /*=== Global Reset ===*/
 * {
   box-sizing: border-box;
@@ -6,111 +5,138 @@
 }
 
 /*=== App Wrapper ===*/
-.app{
-	width:100%;
-	max-width:1200px;
-	margin:0 auto;
-	padding:20px;
+.app {
+  width: 100%;
+  max-width: 1400px;          /* USE THE EMPTY RIGHT SPACE */
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /*=== Search Section ===*/
-.search-container{
+.search-container {
   display: flex;
-  padding: 20px 30px;
   flex-direction: column;
-  border: 2px solid #f2f2f2;
+  padding: 20px 30px;
   margin: 0 auto 30px;
-  border-radius: 15px;	
-  color: rgb(0,100,245);
-  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid #f2f2f2;
+  border-radius: 15px;
   background-color: white;
+  color: rgb(0,100,245);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
 }
 
 .search-container h1 {
-	text-align: center;
-	margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /*=== Filters Grid ===*/
 .filter {
   display: grid;
-  grid-template-columns: 160px 160px 160px 160px 1fr 1fr;
+  grid-template-columns: 180px 180px 180px 180px 1fr 1fr;
   gap: 16px 20px;
   align-items: end;
 }
 
-/*=== Label ===*/
+/* Each field block */
+.filter > div {
+  width: 100%;
+}
+
+/* Short number fields */
+.filter input[type="number"] {
+  max-width: 180px;
+}
+
+/* Type select */
+.filter select {
+  max-width: 220px;
+}
+
+/* Postcode wide */
+.filter input[name="postcode"] {
+  grid-column: span 2;
+}
+
+/* Date medium-wide */
+.filter input[type="date"] {
+  grid-column: span 2;
+}
+
+/*=== Labels ===*/
 .filter label {
-	display: block;
-	font-weight: 600;
-	margin-bottom: 6px;
-	text-align: left;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-align: left;
 }
 
 /*=== Inputs and Selects ===*/
-input[type="text"], input[type="date"], select {
-	width: 100%;
-	border: 2px soild #f2f2f2;
-	border-radius: 10px;
-	font-size: 16px;
-	padding: 8px 10px;
-	outline: 0;
-	font-weight: 200;
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  border: 2px solid #f2f2f2;   /* FIXED typo: solid */
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 8px 10px;
+  outline: none;
+  font-weight: 400;
 }
 
 /*=== Buttons ===*/
-button{
-	background-color:  rgb(0,100,245);  
-	color: white;
-	border-radius: 10px;
-	font-size: 16px;
-	padding: 10px;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
-	border:none;
-	margin-top: 10px;
+button {
+  background-color: rgb(0,100,245);
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+  margin-top: 10px;
 }
-   
+
 button:hover {
-	background-color:  rgb(0, 80, 199);
+  background-color: rgb(0,80,199);
 }
 
-/*=====Main Layout=====*/
-.container{
-	display: flex;
-	gap: 30px;
-	width: 100%;
-	align-items:flex-start;
+/*===== Main Layout =====*/
+.container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-/*===propert Listings===*/
-.all-items{
-	width: 65%;
-	padding: 20px 30px;
-	background-color: #f2f2f2;
-	border-radius: 25px;
-	position:relative;
+/*=== Property Listings ===*/
+.all-items {
+  width: 70%;
+  padding: 20px 30px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
 }
 
-.all-items h1{
-	margin-bottom: 20px;
+.all-items h1 {
+  margin-bottom: 20px;
 }
 
-.all-items .gallery{
-	display: flex;
-	flex-wrap: wrap;
-	gap: 30px;
+.all-items .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-/*=====Property Card=====*/
-
+/*===== Property Card =====*/
 .all-items .gallery .card {
   cursor: pointer;
   flex: 1 0 260px;
-  height: 550px; 
+  height: 550px;
   border-radius: 15px;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: 0.3s;
   padding: 8px;
   display: flex;
@@ -118,20 +144,20 @@ button:hover {
   justify-content: space-between;
 }
 
-.all-items .gallery .card:hover{
-	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+.all-items .gallery .card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .all-items .gallery .card .image {
   height: 70%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .all-items .gallery .card img {
-  border-radius: 15px;
   width: 100%;
   height: 100%;
-  object-fit:contain;
+  border-radius: 15px;
+  object-fit: contain;
 }
 
 .all-items .gallery .card .description {
@@ -143,98 +169,94 @@ button:hover {
 }
 
 .all-items .gallery .card .description h3 {
-	font-size: 16px;
-	margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 /*======= Favourites Section ========*/
-.favorites{
-	width: 35%;
-	padding: 20px;
-	background-color: #f2f2f2;
-	border-radius: 25px;
-	position: relative;
+.favorites {
+  width: 30%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
 }
 
 .favorites h2 {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.favorites .gallery{
-	display: flex;
-	flex-flow: column;
-	gap: 20px;
+.favorites .gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /*==== Favourite Card ====*/
-.favorites .gallery .card{
-	display: flex;
-	gap: 20px;
-	padding: 8px;
-	cursor: pointer;
-	border-radius: 15px;
-	background-color: white;
-	align-items:center;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
+.favorites .gallery .card {
+  display: flex;
+  gap: 20px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: white;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 .favorites .gallery .card:hover {
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.favorites .gallery .card img{
-	width: 160px;
-	height: auto;
-	object-fit: cover;
-	border-radius: 15px;
+.favorites .gallery .card img {
+  width: 160px;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
-.favorites .gallery .card .description{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+.favorites .gallery .card .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-/*===== Responsive Design ======*/
+/*===== Responsive Design =====*/
 @media (max-width: 1024px) {
-  .container{
-		flex-flow: column;
-	}
+  .container {
+    flex-direction: column;
+  }
 
-	.all-items,
-	.favorites {
-		width: 100%;
-	}
+  .all-items,
+  .favorites {
+    width: 100%;
+  }
 
-	.favorites{
-		order: -1;
-	}
-	
-	.all-items .gallery{
-		flex-flow: column;
-		gap: 20px;
-	}
+  .favorites {
+    order: -1;
+  }
 
-	.all-items .gallery .card{
-		height: auto;
-	}
+  .all-items .gallery {
+    flex-direction: column;
+  }
 
-	.all-items .gallery .card .image {
-		height: 200px;
-	}
+  .all-items .gallery .card {
+    height: auto;
+  }
 
-	.all-items .gallery .card img {
-		object-fit: cover;
-	}
+  .all-items .gallery .card .image {
+    height: 200px;
+  }
 
-	.favorites .gallery {
-		flex-direction: row;
-		overflow: auto;
-	}
+  .all-items .gallery .card img {
+    object-fit: cover;
+  }
 
-	.favorites .gallery .card {
-		min-width: 260px;
-	}
-	
+  .favorites .gallery {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .favorites .gallery .card {
+    min-width: 260px;
+  }
 }
