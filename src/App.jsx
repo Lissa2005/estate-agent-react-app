@@ -2,6 +2,7 @@ import {useState} from "react";
 import "./App.css";
 import data from"./data/properties.json";
 import PropertyCard from "./components/PropertyCard";
+import SearchBar from "./components/SearchBar";
 
 function App(){
 
@@ -17,12 +18,22 @@ function App(){
     if (filters.minBeds && property.bedrooms < filters.minBeds) return false;
     if (filters.maxBeds && property.bedrooms > filters.maxBeds) return false;
 
+    if (filters.postcode && !property.location.toLowerCase().includes(filters.postcode.toLowercase)) return false;
+    
+    if (filters.afterDate) {
+      const addedDate = new Date(
+       '${property.added.month} ${property.added.day}, ${property.added.year}' 
+      );
+    }
+
     return true;
   });
 
 
   return(
     <div className="app">
+
+      <SearchBar filters={filters} setFilters={setFilters} />
       <div className="container">
         
         <div className="all-items">
