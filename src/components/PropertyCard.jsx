@@ -1,5 +1,5 @@
 
-import  { link } from "react-router-dom";
+import  { Link } from "react-router-dom";
 
 function PropertyCard({ property, onFavourite, onRemove, isFavourite }){
     return(
