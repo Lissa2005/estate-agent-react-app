@@ -134,7 +134,8 @@ button:hover {
 .all-items .gallery .card {
   cursor: pointer;
   flex: 1 0 260px;
-  height: 550px;
+  min-height: 550px;   /* keeps cards visually even */
+  height: auto;        /*  allows expansion */
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -143,7 +144,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;    /* safety net */
 }
+
 
 .all-items .gallery .card:hover {
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
@@ -158,7 +161,7 @@ button:hover {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .all-items .gallery .card .description {
