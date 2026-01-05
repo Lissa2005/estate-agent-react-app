@@ -107,7 +107,7 @@ button:hover {
 /* ===== Disabled button fix ===== */
 button:disabled {
   background-color: #b0b0b0;  /* grey but visible */
-  color: #333;                /* readable text */
+  color: #0f0f0f;                /* readable text */
   opacity: 1;                 /* override browser default fade */
   cursor: not-allowed;
 }
