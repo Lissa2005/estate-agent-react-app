@@ -4,6 +4,11 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color: #9cbde5; /* choose any colour */
+}
+
+
 /*=== App Wrapper ===*/
 .app {
   width: 100%;
