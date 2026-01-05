@@ -1,4 +1,4 @@
-function SearchBar({ filter,setFilters}) {
+function SearchBar({ filters,setFilters}) {
 
     function handleChange(event){
         setFilters({
@@ -8,7 +8,7 @@ function SearchBar({ filter,setFilters}) {
     }
 
     return(
-        <section>
+        <div className="filter">
 
             <h1>Property Search</h1>
 
@@ -20,9 +20,11 @@ function SearchBar({ filter,setFilters}) {
                 <option value="Flat">Flat</option>
             </select>
 
+            <div>
             <label>Min Price</label>
             <input type="number" name="minPrice" onChange={handleChange}/>
-
+            </div>
+            
             <label>Max Price</label>
             <input type="number" name="maxPrice" onChange={handleChange}/>
 
@@ -38,7 +40,7 @@ function SearchBar({ filter,setFilters}) {
             <label>Added After</label>
             <input type="date" name="afterDate" onChange={handleChange} />
 
-        </section>
+        </div>
 
 
     );
