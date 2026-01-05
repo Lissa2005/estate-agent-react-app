@@ -7,10 +7,10 @@ import SearchBar from "./components/SearchBar";
 function App(){
 
   //search filter state
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState([]);
 
   //Favourites state Array
-  const[favourites, setFavourites] = useState({});
+  const[favourites, setFavourites] = useState([]);
 
   //add to favourites (no duplicates)
   const addFavourites = (property) => {
