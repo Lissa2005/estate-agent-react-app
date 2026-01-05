@@ -9,6 +9,21 @@ function App(){
   //search filter state
   const [filters, setFilters] = useState({});
 
+  //Favourites state Array
+  const[favourites, setFavourites] = useState({});
+
+  //add to favourites (mo duplicates)
+  const addFavourites = (property) => {
+    if (!favourites.find(fav => fav.id === property.id)) {
+      setFavourites([...favourites, property]);
+    }
+  };
+
+  //remove from favourites
+  const removeFromFavourites = (id) => {
+    setFavourites(favourites.filter(fav => fav.id !== id));
+  }
+
   // filtering logic
   const filteredProperties = data.properties.filter(property => {
 
@@ -34,8 +49,10 @@ function App(){
     <div className="app">
 
       <SearchBar filters={filters} setFilters={setFilters} />
+
       <div className="container">
-        
+
+        {/* Property List */}
         <div className="all-items">
           <h1>Property Listings</h1>
 
@@ -43,17 +60,31 @@ function App(){
             {data.properties.map(property => (
               <PropertyCard 
               key={property.id}
-              property={property}/>
+              property={property}
+              onFavourite={addToFavourites}
+              isFavourite={favourites.some(fav => fav.id === property.id)}
+              />
               ))}
           </div>
         </div>
         
         <div className="favorites">
           <h2>Favourites</h2>
-          <div className="gallery">
-            {/*Favourites will go here later*/}
-          </div>
+
+          {favourites.lenght === 0 && <p>No Favourites Yet</p>}
+
+            <div className="gallery">
+              {favourites.map(property => (
+                <PropertyCard
+                  key={property.id}
+                  property={property}
+                  onRemove={removeFromFavourites}
+                  isFavourite={true}
+                />
+              ))}
+            </div>
         </div>
+
       </div>
     </div>      
   );
