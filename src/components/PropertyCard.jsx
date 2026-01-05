@@ -4,7 +4,7 @@ function PropertyCard({ property }){
             <div className="image">
                 <img 
                     src={property.picture}
-                    alt={'${property.type} in ${property.location}'}
+                    alt={property.type}
                 />
             </div>
 
