@@ -21,11 +21,17 @@ describe('PropertyCard', () => {
       </MemoryRouter>
     );
 
+    // Check for property type
     expect(screen.getByText('Apartment')).toBeInTheDocument();
+    // Check for formatted price
     expect(screen.getByText('Price: £250,000')).toBeInTheDocument();
+    // Check for number of bedrooms
     expect(screen.getByText('Bedrooms: 3')).toBeInTheDocument();
+    // Check for tenure
     expect(screen.getByText('Leasehold')).toBeInTheDocument();
+    // Check for location
     expect(screen.getByText('London')).toBeInTheDocument();
+    // Check for added date
     expect(screen.getByText('Added: 12 Oct 2023')).toBeInTheDocument();
   });
 
@@ -36,6 +42,7 @@ describe('PropertyCard', () => {
       </MemoryRouter>
     );
 
+    // Assuming button text changes based on favorite status
     expect(screen.getByText('❤️ Add to Favourites')).toBeInTheDocument();
   });
 
@@ -50,6 +57,7 @@ describe('PropertyCard', () => {
     const removeButton = screen.getByText('❌ Remove');
     expect(removeButton).toBeInTheDocument();
 
+    // Simulate click and check if callback is called
     fireEvent.click(removeButton);
     expect(mockRemove).toHaveBeenCalledWith('123');
   });
@@ -74,16 +82,18 @@ describe('PropertyCard', () => {
       </MemoryRouter>
     );
 
-    const card = screen.getByRole('region') || screen.getByText('Apartment').closest('.card');
-    // Since the 'div' has no role, select it directly:
+    // Select the draggable element
     const draggableDiv = document.querySelector('.card');
 
+    // Mock DataTransfer object
     const dataTransfer = {
       setData: jest.fn(),
     };
 
+    // Simulate drag start
     fireEvent.dragStart(draggableDiv, { dataTransfer });
 
+    // Verify setData called with correct parameters
     expect(dataTransfer.setData).toHaveBeenCalledWith('propertyId', '123');
   });
 });
