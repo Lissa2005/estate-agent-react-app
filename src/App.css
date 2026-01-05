@@ -32,57 +32,80 @@
 
 /*=== Filters Grid ===*/
 .filter {
-  display: grid;
-  grid-template-columns: 180px 180px 180px 180px 1fr 1fr;
-  gap: 16px 20px;
-  align-items: end;
+	display: grid;
+	grid-template-columns: repeat(6, minmax(140px,1fr));
+	gap: 20px;
+	align-items: start;
 }
 
 /* Each field block */
 .filter > div {
-  width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Short number fields */
 .filter input[type="number"] {
-  max-width: 180px;
+	max-width: 180px;
 }
 
 /* Type select */
 .filter select {
-  max-width: 220px;
+	max-width: 220px;
 }
 
 /* Postcode wide */
 .filter input[name="postcode"] {
-  grid-column: span 2;
+	grid-column: span 2;
 }
 
 /* Date medium-wide */
 .filter input[type="date"] {
-  grid-column: span 2;
+	grid-column: span 2;
 }
 
 /*=== Labels ===*/
 .filter label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  text-align: left;
+	font-weight: 600;
+	margin-bottom: 6px;
+	color: #002b5c;
 }
 
 /*=== Inputs and Selects ===*/
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select {
-  width: 100%;
-  border: 2px solid #000000;   /* FIXED typo: solid */
-  border-radius: 10px;
-  font-size: 16px;
-  padding: 8px 10px;
+.filterinput, .filter select {
+	height: 40px;
+	padding: 8px 12px;
+	font-size: 15px;
+	border-radius: 8px;
+	border: 2px solid #cfd8e3;   /* VISIBLE BORDER */
+	background-color: #fff;
+}
+
+/* Focus state */
+.filter input:focus,
+.filter select:focus {
+  border-color: rgb(0,100,245);
   outline: none;
-  font-weight: 400;
+}
+
+/* Short fields */
+.filter input[type="number"] {
+  max-width: 160px;
+}
+
+/* Type select */
+.filter select {
+  max-width: 200px;
+}
+
+/* Postcode wider */
+.filter > div:nth-child(6) {
+  grid-column: span 2;
+}
+
+/* Date wider */
+.filter > div:nth-child(7) {
+  grid-column: span 2;
 }
 
 /*=== Buttons ===*/
