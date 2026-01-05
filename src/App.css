@@ -104,6 +104,18 @@ button:hover {
   background-color: rgb(0,80,199);
 }
 
+/* ===== Disabled button fix ===== */
+button:disabled {
+  background-color: #b0b0b0;  /* grey but visible */
+  color: #333;                /* readable text */
+  opacity: 1;                 /* override browser default fade */
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: #b0b0b0;  /* stop hover changing it */
+}
+
 /*===== Main Layout =====*/
 .container {
   display: flex;
@@ -225,7 +237,6 @@ button:hover {
   justify-content: space-around;
 }
 
-/*=== Image Gallery ===*/
 /* ===== Image Gallery ===== */
 .image-gallery {
   display: flex;
