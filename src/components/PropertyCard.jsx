@@ -1,6 +1,11 @@
-function PropertyCard({ property, onFavourite, onRemove, isFavourites }){
+function PropertyCard({ property, onFavourite, onRemove, isFavourite }){
     return(
-        <div className="card">
+        <div className="card"
+            draggable
+            onDragStart={ (e) =>
+                e.dataTransfer.setData("propertyId", property.id)
+            }
+        >
             <div className="image">
                 <img 
                     src={property.picture}
@@ -19,13 +24,13 @@ function PropertyCard({ property, onFavourite, onRemove, isFavourites }){
                 </small>
 
                 <div className="actions">
-                    {!isFavourites && (
+                    {!isFavourite && (
                         <button onClick={() => onFavourite(property)}>
                         ❤️ Add to Favourites
                         </button>
                     )}
 
-                    {isFavourites && (
+                    {isFavourite && (
                         <button onClick={() => onRemove(property.id)}>
                             ❌ Remove
                         </button>
